@@ -1,6 +1,8 @@
 <?php
 $theme = wp_get_theme(); // gets the current theme
-$footer_logo_default = CLEVERFOX_PLUGIN_URL .'inc/'.$theme->name.'/images/logo.png';
+$theme_name = strtolower($theme->name);
+
+$footer_logo_default = CLEVERFOX_PLUGIN_URL .'inc/'.$theme_name.'/images/logo.png';
 	
 $activate = array(
         'accron-sidebar-primary' => array(
@@ -21,7 +23,7 @@ $activate = array(
 				'text'=>'<aside class="widget widget_text">
                             <div class="textwidget">
                                 <div class="logo">
-                                    <a href="https://www.nayrathemes.com/demo/lite/accron"><img src="'.esc_url($footer_logo_default).'" alt="Accron" width="212" height="65"></a>
+                                    <a href="#"><img src="'.esc_url($footer_logo_default).'" alt="Accron" width="212" height="65"></a>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sed, labore optio ab cum ducimus? Nulla aliquam voluptatibus laboriosam reprehenderit.</p>
                                 <aside class="widget widget_social_widget">
@@ -65,16 +67,16 @@ $activate = array(
                             </aside>
                             <div class="our-rewards">
                                 <div class="reward">
-                                    <img src="'.esc_url(CLEVERFOX_PLUGIN_URL .'inc/'.$theme->name.'/images/award/award1.png').'" alt="award1">
+                                    <img src="'.esc_url(CLEVERFOX_PLUGIN_URL .'inc/'.$theme_name.'/images/award/award1.png').'" alt="award1">
                                 </div>
                                 <div class="reward">
-                                    <img src="'.esc_url(CLEVERFOX_PLUGIN_URL .'inc/'.$theme->name.'/images/award/award2.png').'" alt="award2">
+                                    <img src="'.esc_url(CLEVERFOX_PLUGIN_URL .'inc/'.$theme_name.'/images/award/award2.png').'" alt="award2">
                                 </div>
                                 <div class="reward">
-                                    <img src="'.esc_url(CLEVERFOX_PLUGIN_URL .'inc/'.$theme->name.'/images/award/award3.png').'" alt="award3">
+                                    <img src="'.esc_url(CLEVERFOX_PLUGIN_URL .'inc/'.$theme_name.'/images/award/award3.png').'" alt="award3">
                                 </div>
                                 <div class="reward">
-                                    <img src="'.esc_url(CLEVERFOX_PLUGIN_URL .'inc/'.$theme->name.'/images/award/award4.png').'" alt="award4">
+                                    <img src="'.esc_url(CLEVERFOX_PLUGIN_URL .'inc/'.$theme_name.'/images/award/award4.png').'" alt="award4">
                                 </div>
                             </div>
                             <aside class="widget widget-contact">
@@ -94,7 +96,16 @@ $activate = array(
             ')
         ));
 		 update_option('widget_categories', array(
-			1 => array('title' => 'Categories')));	
+			1 => array('title' => 'Categories')));
+		
+		update_option('widget_search', array(
+			1 => array('title' => 'Search')));
+		
+		update_option('widget_recent_entries', array(
+			1 => array('title' => 'Recent Posts')));
+		
+		update_option('widget_archive', array(
+			1 => array('title' => 'Archives')));	
 		
     update_option('sidebars_widgets',  $activate);
 	$MediaId = get_option('accron_media_id');

@@ -1,10 +1,6 @@
 <?php
-$theme = wp_get_theme(); // gets the current theme
-$theme_name = strtolower($theme->name);
-
-$file = CLEVERFOX_PLUGIN_URL .'inc/'.$theme_name.'/images/logo.png';
-$ImagePath = CLEVERFOX_PLUGIN_URL .'inc/'.$theme_name.'/images';
-
+$file = CLEVERFOX_PLUGIN_URL .'inc/evita/images/logo.png';
+$ImagePath = CLEVERFOX_PLUGIN_URL .'inc/evita/images';
 $images = array(
 $ImagePath. '/logo.png',
 );
@@ -18,7 +14,7 @@ if (!$upload_file['error']) {
 		'post_mime_type' => $wp_filetype['type'],
 		'post_parent' => $parent_post_id,
 		'post_title' => preg_replace('/\.[^.]+$/', '', $filename),
-		'post_excerpt' => 'accron caption',
+		'post_excerpt' => 'evita caption',
 		'post_status' => 'inherit'
 	);
 	$ImageId[] = $attachment_id = wp_insert_attachment( $attachment, $upload_file['file'], $parent_post_id );
@@ -32,6 +28,6 @@ if (!$upload_file['error']) {
 
 }
 
- update_option( 'accron_media_id', $ImageId );
+ update_option( 'evita_media_id', $ImageId );
 
 ?>
